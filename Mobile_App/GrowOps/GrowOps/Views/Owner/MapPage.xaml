@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GrowOps.Views.Owner.MapPage"
+             Title="MapPage"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
+             xmlns:behaviors="clr-namespace:GrowOps.Behaviors"
+             xmlns:models="clr-namespace:GrowOps.Models"
+             xmlns:vm="clr-namespace:GrowOps.ViewModels"
+             x:DataType="vm:MapViewModel">
+    <Grid Margin="10"
+          RowSpacing="10"
+          RowDefinitions="Auto,*">
+        <!--<Button Text="Refresh Location" Clicked="GoToCurrentLocation"/>-->
+
+        <maps:Map Grid.Row="1" IsZoomEnabled="False" IsScrollEnabled="False"
+                  ItemsSource="{Binding Places}">
+            <maps:Map.Behaviors>
+                <behaviors:MapBehavior 
+                    IsReady="{Binding IsReady}"
+                    Places="{Binding BindablePlaces}"/>
+            </maps:Map.Behaviors>
+            <maps:Map.ItemTemplate>
+                <DataTemplate x:DataType="models:Place">
+                    <maps:Pin Location="{Binding Location}"
+                              Address="{Binding Address}"
+                              Label="{Binding Description}" />
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
+    </Grid>
+</ContentPage>

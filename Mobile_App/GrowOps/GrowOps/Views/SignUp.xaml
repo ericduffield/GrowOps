@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GrowOps.Views.SignUp"
+             Title="SignUp">
+    <VerticalStackLayout Margin="32" Spacing="32">
+        <Entry x:Name="email" Placeholder="Email Address"/>
+        <Entry x:Name="password" IsPassword="true" Placeholder="Password"/>
+        <Grid ColumnDefinitions="1*,1*">
+            <RadioButton x:Name="radioOwner" Content="Owner" CheckedChanged="Radio_CheckedChanged"/>
+            <RadioButton x:Name="radioTechnician" Content="Technician" Grid.Column="1" CheckedChanged="Radio_CheckedChanged"/>
+        </Grid>
+
+        <RadioButton x:Name="rbSaveLoginInfo" Content="Save Login Info"/>
+
+        <Button x:Name="btnSignup" Text="Sign Up" Clicked="BtnSignup_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

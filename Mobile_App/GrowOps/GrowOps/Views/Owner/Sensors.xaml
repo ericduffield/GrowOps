@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GrowOps.Views.Owner.Sensors"
+             Title="Sensors"
+             xmlns:convert="clr-namespace:GrowOps.Converters">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Vibration Levels" VerticalOptions="Center"/>
+                <Frame Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding GeoLocationSubsystem.VibrationLevel.Value, StringFormat='{0:F1}'}" HorizontalOptions="Center"/>
+                </Frame> 
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Pitch Angle" VerticalOptions="Center"/>
+                <Frame Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding GeoLocationSubsystem.Pitch.Value, StringFormat='{0:F1}'}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Roll Angle" VerticalOptions="Center"/>
+                <Frame Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding GeoLocationSubsystem.Roll.Value, StringFormat='{0:F1}'}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Luminosity" VerticalOptions="Center"/>
+                <Frame Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding SecuritySubsystem.Luminosity.Value}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Motion" VerticalOptions="Center"/>
+                <Frame BackgroundColor="{Binding SecuritySubsystem.Motion.Value, Converter={StaticResource PseudoBooleanColorConverter}, Mode=OneWay}" Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding SecuritySubsystem.Motion.Value, Converter={StaticResource MotionConverter}, Mode=OneWay}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Door State" VerticalOptions="Center"/>
+                <Frame BackgroundColor="{Binding SecuritySubsystem.DoorState.Value, Converter={StaticResource PseudoBooleanColorConverter}, Mode=OneWay}" Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding SecuritySubsystem.DoorState.Value, Converter={StaticResource DoorStateConverter}, Mode=OneWay}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="20,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Noise" VerticalOptions="Center"/>
+                <Frame Grid.Column="1" Padding="9,5" WidthRequest="130">
+                    <Label Text="{Binding SecuritySubsystem.Noise.Value}" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Frame>
+
+    </VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <convert:StateConverter x:Key="StateConverter" />
+        <convert:ColorConverter x:Key="ColorConverter" />
+        <convert:DoorStateConverter x:Key="DoorStateConverter"/>
+        <convert:PseudoBooleanColorConverter x:Key="PseudoBooleanColorConverter"/>
+        <convert:MotionConverter x:Key="MotionConverter"/>
+    </ContentPage.Resources>
+</ContentPage>

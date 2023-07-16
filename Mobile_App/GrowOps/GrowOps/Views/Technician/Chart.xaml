@@ -1,0 +1,13 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GrowOps.Views.Technician.Chart"
+             Title="Chart"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:vm="clr-namespace:GrowOps.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:ChartViewModel/>
+    </ContentPage.BindingContext>
+    <lvc:CartesianChart Series="{Binding Series}" Title="{Binding Title}"
+                        XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" Margin="2,5,10,2"
+                        TooltipTextSize="50"/>
+</ContentPage>

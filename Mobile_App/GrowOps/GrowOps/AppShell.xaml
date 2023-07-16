@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GrowOps.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GrowOps"
+    xmlns:views="clr-namespace:GrowOps.Views"
+    xmlns:owner="clr-namespace:GrowOps.Views.Owner"
+    xmlns:tech="clr-namespace:GrowOps.Views.Technician"
+    Shell.FlyoutBehavior="Disabled">
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <TabBar>
+        <ShellContent Title="Actuators" Route="SecurityActuators"
+                  ContentTemplate="{DataTemplate tech:Actuators}" Icon="push"/>
+        <ShellContent Title="Sensors" Route="SecuritySensors" ContentTemplate="{DataTemplate tech:Sensors}" Icon="sensor"/>
+        <ShellContent Title="Chart" Route="SecuritySensors" ContentTemplate="{DataTemplate tech:Chart}" Icon="chart"/>
+        <ShellContent Title="Account" Route="Account" ContentTemplate="{DataTemplate views:Account}" Icon="user"/>
+    </TabBar>
+
+    <TabBar>
+        <ShellContent Title="Sensors" Route="Sensors" ContentTemplate="{DataTemplate owner:Sensors}" Icon="sensor"/>
+        <ShellContent Title="Actuators" Route="GeoActuators" ContentTemplate="{DataTemplate owner:Actuators}" Icon="push"/>
+        <ShellContent Title="Map" Route="GeoLocation" ContentTemplate="{DataTemplate owner:MapPage}" Icon="location_pointer"/>
+        <ShellContent Title="Account" Route="Account" ContentTemplate="{DataTemplate views:Account}" Icon="user"/>
+    </TabBar>
+
+
+</Shell>

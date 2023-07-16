@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GrowOps.Views.Technician.Sensors"
+             Title="Sensors">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="20">
+            <Frame>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Temperature" />
+                    <Label Text="{Binding Temperature.Value, StringFormat='{0:F1}'}" Grid.Column="1" HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+
+            <Frame>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Humidity" />
+                    <Label Text="{Binding Humidity.Value, StringFormat='{0:F1}'}" Grid.Column="1" HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+
+            <Frame>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Relative Water Level" />
+                    <Label Text="{Binding RelativeWaterLevel.Value}" Grid.Column="1" HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+
+            <Frame>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Soil Moisture Level" />
+                    <Label Text="{Binding SoilMoistureLevel.Value}" Grid.Column="1" HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
